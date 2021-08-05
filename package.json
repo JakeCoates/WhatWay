@@ -13,6 +13,10 @@
     "type": "git",
     "url": "git+https://github.com/JakeCoates/WhatWay.git"
   },
+  "engines": {
+    "node": "12.16.1",
+    "npm": "6.14.2"
+  },
   "author": "",
   "license": "ISC",
   "bugs": {
