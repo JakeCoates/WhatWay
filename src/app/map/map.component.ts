@@ -1,33 +1,47 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { Map, Marker, geoJSON, Control, LeafletEvent, TileLayer, TileLayerOptions, DomUtil, FeatureGroup } from 'leaflet';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Map, latLng, MapOptions, tileLayer, ZoomAnimEvent } from 'leaflet';
 
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss'],
 })
-export class MapComponent implements AfterViewInit {
-  private map;
+export class MapComponent implements OnInit, OnDestroy {
+  @Output() map$: EventEmitter<Map> = new EventEmitter();
+  @Output() zoom$: EventEmitter<number> = new EventEmitter();
+  @Input() options: MapOptions= {
+                      layers:[tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        opacity: 0.7,
+                        maxZoom: 19,
+                        detectRetina: true,
+                        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                      })],
+                      zoom:1,
+                      center:latLng(0,0)
+  };
+  public map: Map;
+  public zoom: number;
 
-  constructor() { }
-
-
-  ngAfterViewInit() {
-    this.initMap();
+  constructor() {
   }
 
-  private initMap() {
-    this.map = new Map('map', {
-      center: [ 39.8282, -98.5795 ],
-      zoom: 3
-    });
+  ngOnInit() {
+  }
 
-    const tiles = new TileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 18,
-      minZoom: 3,
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    });
+  ngOnDestroy() {
+    this.map.clearAllEventListeners();
+    this.map.remove();
+  };
 
-    tiles.addTo(this.map);
+  onMapReady(map: Map) {
+    this.map = map;
+    this.map$.emit(map);
+    this.zoom = map.getZoom();
+    this.zoom$.emit(this.zoom);
+  }
+
+  onMapZoomEnd(e: ZoomAnimEvent) {
+    this.zoom = e.target.getZoom();
+    this.zoom$.emit(this.zoom);
   }
 }

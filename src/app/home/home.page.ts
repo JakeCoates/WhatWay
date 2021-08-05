@@ -4,6 +4,7 @@ import { take } from 'rxjs/operators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Classification from '../classification/models/classification.model';
 import copy from 'copy-to-clipboard';
+import {Map} from 'leaflet';
 import { ToastController } from '@ionic/angular';
 
 @Component({
@@ -13,7 +14,10 @@ import { ToastController } from '@ionic/angular';
 })
 export class HomePage implements OnInit {
 
+
   public classificationForm: FormGroup;
+  private map: Map;
+  private zoom: number;
 
   constructor(
     public classification: ClassificationService,
@@ -51,6 +55,12 @@ export class HomePage implements OnInit {
     );
   }
 
-  copySuccess
+  receiveMap(map: Map) {
+    this.map = map;
+  }
+
+  receiveZoom(zoom: number) {
+    this.zoom = zoom;
+  }
 
 }

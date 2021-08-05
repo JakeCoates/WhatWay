@@ -5,5 +5,11 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
+<div class="fs-container">
+  <app-map
+    [options]="options"
+    (map$)="receiveMap($event)"
+    (zoom$)="receiveZoom($event)">
+  </app-map>
+</div>
 
-<app-map></app-map>
