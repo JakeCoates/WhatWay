@@ -22,9 +22,9 @@ app.use("/classify", classifyRouter);
 
 app.use(express.static('../whatway-client/www'));
 
-app.get('/', (req, res) => {
-    res.send('Welcome to text classification!')
-})
+// app.get('/', (req, res) => {
+//     res.send('Welcome to what way!')
+// })
 
 
 /**
