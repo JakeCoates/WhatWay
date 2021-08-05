@@ -5,6 +5,7 @@
   "main": "",
   "scripts": {
     "postinstall": "npm install --prefix ./whatyway-client && npm install --prefix ./whatyway-server",
+    "start": "node ./whatway-server/app.js",
     "builds": "cd whatyway-client && npm run build:prod",
     "client": "cd whatyway-client && ionic serve",
     "server": "cd whatyway-server && node app.js"
