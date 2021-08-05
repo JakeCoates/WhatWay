@@ -4,11 +4,11 @@
   "description": "---",
   "main": "",
   "scripts": {
-    "postinstall": "npm install --prefix ./whatyway-client && npm install --prefix ./whatyway-server",
+    "postinstall": "npm install --prefix ./whatway-client && npm install --prefix ./whatway-server",
     "start": "node ./whatway-server/app.js",
-    "builds": "cd whatyway-client && npm run build:prod",
-    "client": "cd whatyway-client && ionic serve",
-    "server": "cd whatyway-server && node app.js"
+    "builds": "cd whatway-client && npm run build:prod",
+    "client": "cd whatway-client && ionic serve",
+    "server": "cd whatway-server && node app.js"
   },
   "repository": {
     "type": "git",

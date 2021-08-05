@@ -1,6 +1,6 @@
 {
   "appId": "app.teemotrainer.whatway",
-  "appName": "whatywayclient",
+  "appName": "whatwayclient",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
