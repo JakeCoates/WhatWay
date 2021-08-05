@@ -1,0 +1,7 @@
+{
+  "name": "whatywayclient",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

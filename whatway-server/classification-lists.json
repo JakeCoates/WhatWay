@@ -1,0 +1,28 @@
+{
+    "lists": [
+        {
+            "name": "A",
+            "qualifiers": [
+                "Alert",
+                "Critical",
+                "Immediate",
+                "Important",
+                "Urgent",
+                "Warning"
+            ],
+            "classification": "URGENT"
+        },
+        {
+            "name": "B",
+            "qualifiers": [
+                "Clear",
+                "Good",
+                "Nothing",
+                "OK",
+                "Quiet"
+            ],
+            "classification": "NOT URGENT"
+        }
+    ],
+    "default": "UNKNOWN"
+}

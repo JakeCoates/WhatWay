@@ -1,0 +1,22 @@
+{
+  "name": "WhatWay",
+  "version": "1.0.0",
+  "description": "---",
+  "main": "",
+  "scripts": {
+    "postinstall": "cd whatyway-client && npm install && cd ../whatyway-server && npm install",
+    "builds": "cd whatyway-client && npm run build:prod",
+    "client": "cd whatyway-client && ionic serve",
+    "server": "cd whatyway-server && node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JakeCoates/WhatWay.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JakeCoates/WhatWay/issues"
+  },
+  "homepage": "https://github.com/JakeCoates/WhatWay#readme"
+}

@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Text Classification
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Current text area -->
+  <ion-item [formGroup]="classificationForm">
+    <ion-label position="stacked">Text Classification input</ion-label>
+    <ion-textarea
+      placeholder="Type here to classify your text!"
+      formControlName="text">
+    </ion-textarea>
+  </ion-item>
+
+  <!-- Submit button -->
+  <ion-button expand="block" (click)="classify()">
+    Submit
+  </ion-button>
+
+  <ng-container *ngIf="classification.historicalClassifications.length > 0">
+    <ion-item-divider></ion-item-divider>
+
+    <!-- History title -->
+    <ion-item>
+      <h1>
+        Previous submissions
+      </h1>
+    </ion-item>
+
+    <!-- History -->
+    <ion-item *ngFor="let submission of classification.historicalClassifications">
+      <ion-button (click)="copyText(submission)"><ion-icon name="copy-outline"></ion-icon></ion-button>
+      <ion-label class="ion-text-wrap">{{submission.text}}</ion-label>
+      <ion-note slot="end" color="secondary">{{submission?.classification}}</ion-note>
+    </ion-item>
+
+  </ng-container>
+</ion-content>

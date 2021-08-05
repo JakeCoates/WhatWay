@@ -1,0 +1,13 @@
+//host so not be global style
+:host::ng-deep {
+  ion-card-title {
+    text-align: center;
+  }
+  ion-card-subtitle {
+    text-align: center;
+  }
+}
+
+.center-text {
+  text-align: center;
+}
