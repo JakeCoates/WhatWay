@@ -20,6 +20,8 @@ app.set('port', process.env.PORT || port)
 
 app.use("/classify", classifyRouter);
 
+app.use(express.static('../whatway-client/www'));
+
 app.get('/', (req, res) => {
     res.send('Welcome to text classification!')
 })
