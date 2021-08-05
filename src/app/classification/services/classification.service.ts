@@ -8,7 +8,7 @@ import { environment } from './../../../environments/environment';
   providedIn: 'root'
 })
 export class ClassificationService {
-  baseUrl = 'http://localhost:8000';
+  baseUrl = 'http://localhost:5000';
 
   historicalClassifications = [];
 
