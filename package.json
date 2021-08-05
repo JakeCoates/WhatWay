@@ -4,7 +4,7 @@
   "description": "---",
   "main": "",
   "scripts": {
-    "postinstall": "cd whatyway-client && npm install && cd ../whatyway-server && npm install",
+    "postinstall": "npm install --prefix ./whatyway-client && npm install --prefix ./whatyway-server",
     "builds": "cd whatyway-client && npm run build:prod",
     "client": "cd whatyway-client && ionic serve",
     "server": "cd whatyway-server && node app.js"
